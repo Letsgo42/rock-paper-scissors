@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang ="eng">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+</body>
+<script>
+    function computerPlay() {
+        function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+        }
+        let randomSign = getRandomInt(1,4); 
+        if (randomSign == 1) {
+            return("Rock"); 
+        } else if (randomSign == 2) {
+            return("Paper");
+        } else {
+            return("Scissors");
+        }       
+    }
+
+    function playRound(playerSelection, computerSelection) {
+        computerSelection = computerPlay();
+
+        playerChoice = prompt("Choose your weapon: Rock, Paper or Scissors??").toLowerCase();
+        let first = playerChoice.charAt(0);
+        let cap = first.toUpperCase();
+        let result = cap + playerChoice.substr(1)
+        playerSelection = result;
+
+        switch (playerSelection) {         
+        case "Rock":
+            if (computerSelection === "Paper") {
+                return "You lose! Paper beats Rock";
+            } 
+            else if (computerSelection === "Scissors") {
+                return "You win! Rock beats Scissors";    
+            } 
+            else {
+                return "Rock against Rock... Draw";
+            }
+            break;
+        case "Paper":
+            if (computerSelection === "Scissors") {
+                return "You lose! Scissors beats Paper";
+            }
+            else if (computerSelection === "Rock") {
+                return "You win! Paper beats Rock";
+            }
+            else {
+                return "Paper against Paper... Draw"
+            }
+            break;
+        case "Scissors":
+            if (computerSelection === "Rock") {
+                return "You lose! Rock beats Scissors";
+            }
+            else if (computerSelection === "Paper") {
+                return "You win! Scissors beats Paper";
+            }
+            else {
+                return "Scissors against Scissors! Draw";
+            }
+            break;
+        default:
+            alert("Fuck off!");
+        }
+    }
+
+    function game() {
+        playerScore = 0;
+        computerScore = 0;
+        let result = playRound();
+        for (let i = 0; i < 4; i++) {
+            if (result.includes("win")) {
+                console.log("You win this round");
+                playerScore++;
+                alert(`Player : ${playerScore}\nComputer : ${computerScore}`);
+                playRound();
+            }
+            else if (result.includes("lose")) {
+                console.log("You lose this round");
+                computerScore++;
+                alert(`Player : ${playerScore}\nComputer : ${computerScore}`);
+                playRound();
+            }
+            else {
+                console.log("Draw");
+                alert(`Player : ${playerScore}\nComputer : ${computerScore}`);
+                playRound();
+            }
+        }
+        if (playerScore > computerScore) {
+            alert(`SCORE FINAL\nPlayer : ${playerScore}\nComputer : ${computerScore}`);
+            return "YOU WIN THE GAME!";
+        } else if (playerScore < computerScore) {
+            alert(`SCORE FINAL\nPlayer : ${playerScore}\nComputer : ${computerScore}`);
+            return "YOU LOOOOOOSE";
+        } else {
+            alert(`SCORE FINAL\nPlayer : ${playerScore}\nComputer : ${computerScore}`);
+            "That's a draw.";
+        }
+    }
+</script>
+</html>
