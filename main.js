@@ -7,7 +7,7 @@ const computerScoreDisplay = document.querySelector('.computerScoreDisplay');
 
 function newGame () {
     let gameStart = document.querySelector('.start');
-    gameStart.textContent = 'CHOOSE YOUR WEAPON';
+    gameStart.textContent = 'YOUR MOVE !';
     computerScore = 0;
     playerScore = 0;
     computerScoreDisplay.textContent = 'Computer: ' + computerScore;
@@ -43,7 +43,7 @@ let start = document.querySelector('#start');
 
 function playRound(event, computerSelection) {
     let gameStart = document.querySelector('.start');
-    if (gameStart.textContent === 'CHOOSE YOUR WEAPON') {
+    if (gameStart.textContent === 'YOUR MOVE !') {
         gameStart.textContent = 'START GAME';
     }
     computerSelection = computerPlay();
@@ -133,7 +133,7 @@ function playRound(event, computerSelection) {
             return 0;
         }
 
-    function reStart () {
+    function restart () {
         gameStart.textContent = 'START GAME';
         computerScore = 0;
         playerScore = 0;
@@ -144,13 +144,12 @@ function playRound(event, computerSelection) {
         if (playerScore === 5 | computerScore === 5) {
             if (playerScore > computerScore) {
                 winner.play();
-                alert(`Congratulations!\n You won the game ${playerScore} to ${computerScore} !`)
-                reStart();                
+                gameStart.textContent = 'Congratulations!\n You won the game ' + playerScore + ' to '+ computerScore;             
             }
             else if (playerScore < computerScore) {
                 loser.play();
-                alert(`Too bad!\n You lost the game ${computerScore} to ${playerScore} !`);              
-                reStart();
+                gameStart.textContent = 'Too bad!\n You lost the game ' + computerScore + ' to ' + playerScore;              
             }
+        setTimeout (restart, 5000);
         }
     }
