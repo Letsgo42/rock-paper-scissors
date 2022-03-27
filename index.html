@@ -3,107 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
+
 <body>
+    <header class='header container'>
+        <h1 class='head title'>Rock &#9993; Paper &#9988; Scissors</h1>
+    </header>
+    <div id="start">
+        <button class='start'>START GAME</button>
+    </div>
+    <div class='container score'>
+        <div class="playerScoreDisplay"></div>
+        <div class='computerScoreDisplay'></div>
+    </div>
+    <div class='container buttons'>
+        <button class='btn rock'></button>
+        <button class='btn paper'></button>
+        <button class='btn scissors'></button>
+    </div>
+    <div class="audio">
+        <audio id='win' src='./content/win.wav'></audio>
+        <audio id='lose' src='./content/lose.mp3'></audio>
+        <audio id='winner' src='./content/winner.mp3'></audio>
+        <audio id='loser' src='./content/loser.mp3'></audio>
+    </div>
+
 </body>
-<script>
-    function computerPlay() {
-        function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min;
-        }
-        let randomSign = getRandomInt(1,4); 
-        if (randomSign == 1) {
-            return("Rock"); 
-        } else if (randomSign == 2) {
-            return("Paper");
-        } else {
-            return("Scissors");
-        }       
-    }
-
-    function playRound(playerSelection, computerSelection) {
-        computerSelection = computerPlay();
-
-        playerChoice = prompt("Choose your weapon: Rock, Paper or Scissors??").toLowerCase();
-        let first = playerChoice.charAt(0);
-        let cap = first.toUpperCase();
-        let result = cap + playerChoice.substr(1)
-        playerSelection = result;
-
-        switch (playerSelection) {         
-        case "Rock":
-            if (computerSelection === "Paper") {
-                return "You lose! Paper beats Rock";
-            } 
-            else if (computerSelection === "Scissors") {
-                return "You win! Rock beats Scissors";    
-            } 
-            else {
-                return "Rock against Rock... Draw";
-            }
-            break;
-        case "Paper":
-            if (computerSelection === "Scissors") {
-                return "You lose! Scissors beats Paper";
-            }
-            else if (computerSelection === "Rock") {
-                return "You win! Paper beats Rock";
-            }
-            else {
-                return "Paper against Paper... Draw"
-            }
-            break;
-        case "Scissors":
-            if (computerSelection === "Rock") {
-                return "You lose! Rock beats Scissors";
-            }
-            else if (computerSelection === "Paper") {
-                return "You win! Scissors beats Paper";
-            }
-            else {
-                return "Scissors against Scissors! Draw";
-            }
-            break;
-        default:
-            alert("Fuck off!");
-        }
-    }
-
-    function game() {
-        playerScore = 0;
-        computerScore = 0;
-        let result = playRound();
-        for (let i = 0; i < 4; i++) {
-            if (result.includes("win")) {
-                console.log("You win this round");
-                playerScore++;
-                alert(`Player : ${playerScore}\nComputer : ${computerScore}`);
-                playRound();
-            }
-            else if (result.includes("lose")) {
-                console.log("You lose this round");
-                computerScore++;
-                alert(`Player : ${playerScore}\nComputer : ${computerScore}`);
-                playRound();
-            }
-            else {
-                console.log("Draw");
-                alert(`Player : ${playerScore}\nComputer : ${computerScore}`);
-                playRound();
-            }
-        }
-        if (playerScore > computerScore) {
-            alert(`FINAL SCORE\nPlayer : ${playerScore}\nComputer : ${computerScore}`);
-            return "YOU WIN THE GAME!";
-        } else if (playerScore < computerScore) {
-            alert(`FINAL SCORE\nPlayer : ${playerScore}\nComputer : ${computerScore}`);
-            return "YOU LOOOOOOSE";
-        } else {
-            alert(`FINAL SCORE\nPlayer : ${playerScore}\nComputer : ${computerScore}`);
-            "That's a draw.";
-        }
-    }
-</script>
 </html>

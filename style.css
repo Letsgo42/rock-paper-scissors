@@ -1,0 +1,130 @@
+ @import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Roboto&family=Smokum&display=swap');
+html {
+    background: url('./content/steve.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+    display :flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid antiquewhite;
+    padding-block : min(10vh, 1rem);
+    border-bottom: none;
+    border-radius: 3em;
+    margin-top: 3em;
+}
+
+h1 {
+    flex: 1;
+    color:antiquewhite;
+    font-family: 'Smokum', cursive;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.4) ;
+    font-weight: bolder;
+    font-size: 7em;
+    margin: 0;
+}
+
+#start {
+    margin-top: 10em;
+    height: fit-content;
+    display: flex;
+}
+
+.start {
+    font-family: 'Smokum', cursive;
+    font-size: 60px;
+    background-color: antiquewhite;
+    box-shadow: 4px 5px rgba(0, 0, 0, 0.4);
+}
+
+.score {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    padding: 1em 3em;
+    gap: 10px;
+}
+
+.playerScoreDisplay, .computerScoreDisplay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    border: 3px solid rgb(255, 141, 1);
+    font-family: 'Smokum', cursive;
+    font-size: 50px;
+    padding: 3px 10px;
+    color: antiquewhite;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    gap: 30px;
+}
+
+.btn {
+    flex : 1;
+    justify-content: center;
+    border-radius: 1em;
+    height: 320px;;
+    max-width: 320px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.start:hover {
+    cursor: pointer;
+    font-weight: 700;
+    background-color: black;
+    color:antiquewhite;
+}
+
+.rock, .paper, .scissors {
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.rock {
+    background: url('./content/rock.svg');
+}
+
+.paper {
+    background: url('./content/paper.svg');
+    
+}
+
+.scissors {
+    background: url('./content/scissors.svg');
+}
+
+.clicking {
+    transform: scale(2);
+    border: 6px solid coral;
+}
