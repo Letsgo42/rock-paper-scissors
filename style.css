@@ -1,5 +1,7 @@
  @import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Roboto&family=Smokum&display=swap');
-html {
+ @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+ 
+ html {
     background: url('./content/steve.jpg');
     background-size:cover;
     background-repeat: no-repeat;
@@ -33,7 +35,8 @@ header {
 h1 {
     flex: 1;
     color:antiquewhite;
-    font-family: 'Smokum', cursive;
+    /*font-family: 'Smokum', cursive;*/
+    font-family: 'Rye', cursive;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.4) ;
     font-weight: bolder;
     font-size: 7em;
@@ -47,7 +50,8 @@ h1 {
 }
 
 .start {
-    font-family: 'Smokum', cursive;
+    /*font-family: 'Smokum', cursive;*/
+    font-family: 'Rye', cursive;
     font-size: 60px;
     background-color: antiquewhite;
     box-shadow: 4px 5px rgba(0, 0, 0, 0.4);
